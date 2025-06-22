@@ -2,6 +2,8 @@
 ## ✍🏻By: Nurul Fatimah Az-Zaharah Mohd Aris
 Case Study for the Google Data Analytics Professional Certificate
 
+---
+
 ## 🧠 ASK
 
 **Business Task:**  
