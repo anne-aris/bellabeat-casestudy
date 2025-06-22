@@ -72,12 +72,12 @@ While the datasets are not collected directly by Bellabeat, the dataset still of
 
 ## 📊 ANALYZE
 
-Tools Used: R (tidyverse, lubridate, ggplot2)
+Tools Used: R (**tidyverse**, **lubridate**, **ggplot2**)
 
-In this phase, R programming was used to explore and analyze patterns in user activity, calorie expenditure, and sleep tracking. Cleaned .csv datasets were imported and processed to prepare for visual exploration.
+In this phase, **R programming** was used to explore and analyze patterns in user activity, calorie expenditure, and sleep tracking. Cleaned .csv datasets were imported and processed to prepare for visual exploration.
 
-🔹 1. Total Steps vs Calories Burned
-A heatmap-style scatter plot of total steps vs. calories burned. The plot uses a gradient color scale — from blue (low calorie burn) to red (high calorie burn) — to visually emphasize the correlation between physical activity and energy expenditure.
+🔹 1. **Total Steps vs Calories Burned**
+A **heatmap-style scatter plot** of **total steps vs. calories burned**. The plot uses a gradient color scale; from blue (low calorie burn) to red (high calorie burn), to visually emphasize the correlation between physical activity and energy expenditure.
 
 Insights:
 
@@ -89,8 +89,8 @@ There’s a clear positive relationship between physical activity and calorie bu
 
 
 
-🔹 2. Sleep Duration vs Calories Burned (Pastel Theme)
-This scatter plot explores how total minutes asleep relate to calories burned. A pastel gradient scale and a smooth trend line help visualize the pattern.
+🔹 2. **Sleep Duration vs Calories Burned**
+This **scatter plot** explores how **total minutes asleep relate to calories burned**. A **pastel gradient scale** and a **smooth trend line** help visualize the pattern.
 
 Insights:
 
