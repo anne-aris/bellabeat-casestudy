@@ -1,8 +1,4 @@
 # 📊 Capstone Project: Bellabeat Case Study
-## ✍🏻By: Nurul Fatimah Az-Zaharah Mohd Aris
-Case Study for the Google Data Analytics Professional Certificate
-
----
 
 ## 🧠 ASK
 
@@ -10,21 +6,21 @@ Case Study for the Google Data Analytics Professional Certificate
 Bellabeat, a wellness company focused on empowering women through smart health devices, wants to gain insights from fitness tracker data to inform its marketing strategy. The goal is to better understand user behavior and identify trends that can help grow its user base.
 
 **Key Stakeholders:**  
-- Urska Srsen (Co-founder & CCO of Bellabeat)  
+- Urška Sršen (Co-founder & CCO of Bellabeat)  
 - Bellabeat Marketing Analytics Team  
 - Product Strategy & Innovation Team
 
 **Guiding Questions:**  
-- How do users engage with smart fitness trackers?  
-- What are the most common activity and sleep patterns?  
-- What trends can help Bellabeat develop data-driven marketing strategies?
+- What are some trends in smart device usage?  
+- How do users engage with fitness and wellness data?  
+- How could these trends help Bellabeat grow and market its products?
 
 ---
 
 ## 📦 PREPARE
 
 **Dataset Source:**  
-📁 FitBit Fitness Tracker Dataset (CC0: Public Domain)  
+📁 FitBit Fitness Tracker Dataset (2016 – Public Domain)  
 🔗 [Kaggle Link](https://www.kaggle.com/datasets/arashnic/fitbit)
 
 **Files Used for This Study:**
@@ -33,107 +29,116 @@ Bellabeat, a wellness company focused on empowering women through smart health d
 - `weightLogInfo_merged.csv`
 
 **Notes on Data Quality:**  
-The dataset includes anonymous daily activity data for 30 Fitbit users for over around 2 months. It contains valuable information on steps, sleep, calories, heart rate, and weight tracking.
+The dataset includes daily logs from 30 users over 2 months. Though the sample is limited and not collected by Bellabeat, it offers valuable insights into smart device usage behavior.
 
 **ROCCC Analysis:**
 
 | Criteria     | Assessment |
 |--------------|------------|
 | Reliable     | ✅ Yes      |
-| Original     | ❌ No (Not Bellabeat's own data) |
-| Comprehensive| ⚠️ Limited sample (30 users) |
-| Current      | ❌ 2016 data, not up to date (2025) |
-| Cited        | ✅ Public domain via Kaggle |
-
-While the datasets are not collected directly by Bellabeat, the dataset still offers useful insights into general health-tracking behaviors.
+| Original     | ❌ No (Not Bellabeat’s proprietary data) |
+| Comprehensive| ⚠️ Limited sample |
+| Current      | ❌ From 2016 |
+| Cited        | ✅ Public Domain |
 
 ---
 
 ## 🧹 PROCESS
 
-**CLEANING DATA**
-
 **Tool Used:** Microsoft Excel
 
-**Cleaning Steps for `dailyActivity_merged.csv`:**
+Each dataset was cleaned and standardized before analysis in R:
 
-- Column names were standardized to `snake_case` format (e.g., `ActivityDate` → `activity_date`) to allow easier analysis in R
-- Data filters were used to check for missing/null (blanks) values across all columns. ✅ **No blanks were found**
-- Conditional formatting and the “**Remove Duplicates**” tool were applied to identify 100% identical rows
-- ✅ **Exact duplicates** (same user ID, same day, same metrics) were removed
-- Repeated `id` values were expected, as the dataset contains daily logs
-- The final cleaned version was saved as `cleaned_dailyActivity.csv`
-
-> 🔎 Similar steps were applied to `sleepDay_merged.csv` and `weightLogInfo_merged.csv`
-
-- For the `weightLogInfo_merged.csv`, The `fat` column was excluded from analysis due to insufficient data (only 2 out of 68 rows that contained values).
+- Column names were renamed using `snake_case`
+- Date formats were cleaned and parsed correctly
+- Null values (blanks) and duplicate rows were checked
+- The `fat` column in `weightLogInfo_merged.csv` was removed due to missing data
+- Final cleaned files:
+  - `cleaned_daily_activity.csv`
+  - `cleaned_sleep_day.csv`
+  - `cleaned_weight_log_info.csv`
 
 ---
 
 ## 📊 ANALYZE
 
-Tools Used: R (**tidyverse**, **lubridate**, **ggplot2**)
+**Tools Used:** R (tidyverse, lubridate, ggplot2)
 
-In this phase, **R programming** was used to explore and analyze patterns in user activity, calorie expenditure, and sleep tracking. Cleaned .csv datasets were imported and processed to prepare for visual exploration.
-
-🔹 1. **Total Steps vs Calories Burned**
-A **heatmap-style scatter plot** of **total steps vs. calories burned**. The plot uses a gradient color scale; from blue (low calorie burn) to red (high calorie burn), to visually emphasize the correlation between physical activity and energy expenditure.
-
-Insights:
-
-Users with higher step counts burned more calories.
-
-There’s a clear positive relationship between physical activity and calorie burn.
-
-📎 Example Visualization:
-
-
-
-🔹 2. **Sleep Duration vs Calories Burned**
-This **scatter plot** explores how **total minutes asleep relate to calories burned**. A **pastel gradient scale** and a **smooth trend line** help visualize the pattern.
-
-Insights:
-
-Users who slept longer tended to burn slightly more calories.
-
-Better sleep may lead to more energy and activity the next day.
-
-📎 Visualization:
-
-
-🔹 3. Calories Burned vs Day of Week
-The final visualization groups average calories burned by day of the week. This plot uses a gradient scale to represent calorie output and explores potential behavioral patterns across weekdays and weekends.
-
-📎 Visualization:
-
-
-All visualizations are stored in the /visuals folder and saved using ggsave(). Full analysis is available in bellabeat_analysis.R.
+Cleaned `.csv` files were analyzed using R to explore the relationships between user activity, calories burned, and sleep behavior. Visualizations were saved using `ggsave()` and stored in the `/visuals` folder.
 
 ---
 
-## 📈 SHARE
+### 🔹 1. Total Steps vs Calories Burned  
+📎 **Type:** Heatmap-style Scatter Plot  
+📌 **Insight:** A strong positive relationship — more steps taken = more calories burned.
 
-Visuals to include (to be added):
-- Line plot of daily steps vs calories burned
-- Bar chart of active vs sedentary minutes
-- Pie chart of sleep duration distribution
+![Steps vs Calories Heatmap](visuals/steps_vs_calories_heatmap.png)
 
-A simple data dashboard or infographic (optional) may be created using Canva/Tableau.
+---
+
+### 🔹 2. Average Calories by Day of Week  
+📎 **Type:** Bar Chart with Gradient  
+📌 **Insight:** Users burn more calories on weekdays (Tues–Thurs) and are less active on weekends.
+
+![Calories by Day](visuals/calories_by_day.png)
+
+---
+
+### 🔹 3. Sleep Duration vs Calories Burned  
+📎 **Type:** Pastel Scatter Plot with Smooth Trend  
+📌 **Insight:** Users with longer sleep durations tend to burn slightly more calories, suggesting rest supports activity levels.
+
+![Sleep vs Calories Pastel](visuals/sleep_vs_calories_pastel.png)
 
 ---
 
 ## 💡 ACT
 
-**Key Recommendations for Bellabeat:**
-- Target women aged 25–35 who show consistent tracking behavior (based on usage patterns)
-- Promote features that drive long-term engagement (like daily step goals and sleep tracking)
-- Bundle smart device products with holistic wellness programs (workouts, meditation, sleep tips)
+Based on the findings, here are three high-level marketing strategies Bellabeat could implement:
+
+### 🔹 1. **Midweek Motivation Campaigns**
+
+From the analysis, it was observed that the users tend to be most active during the middle of the week, particularly on Wednesdays and Thursdays. Bellabeat could leverage this trend by launching themed campaigns such as “_Wellness Wednesdays_” or “_Power-Up Thursdays_” that encourage users to keep up their momentum. These campaigns could also include limited-time rewards, motivational notifications, or in-app challenges to maintain engagement during peak activity days.
+
+### 🔹 2. **Sleep-Based Coaching Features**
+
+The data suggests a subtle positive relationship between longer sleep duration and increased calories burned. Bellabeat can promote more sleep tracking features by introducing personalized coaching prompts. For example, nudging users to maintain consistent sleep patterns or celebrating well-rested streaks. This reinforces the importance of recovery and positions Bellabeat as a holistic wellness partner, not just a tracker.
+
+### 🔹 3. **In-App Visualizations with Heatmaps**
+
+It is well known that most users respond well to visually engaging insights. Thus, it is recommended for Bellabeat to integrate gradient-style plots or interactive heatmap dashboards within their app to help users better understand their own trends. For instance, displaying activity intensity with warm-to-cool color scales can gamify progress and motivate users to “_heat up_” their wellness goals. These visual feedback loops can increase daily check-ins and boost app stickiness over time.
 
 ---
 
-## 💬 Reflection
+## 💬 REFLECTION
 
-This capstone project helped me apply the full data analysis process — from cleaning raw data in Excel to exploring trends in R. It strengthened my confidence in preparing datasets, detecting issues, and communicating insights to guide data-driven decision-making.
+This capstone project allowed me to apply the entire data analysis process. From cleaning messy raw files in Excel, to exploring behavioral patterns with R, and building actionable insights through visual storytelling.
+
+During the analysis phase of this case study, I encountered several unexpected errors, some of which I had never faced before. These moments pushed me to research error messages online, consult R documentation, and explore support communities to find solutions.
+
+Although at times overwhelming, these challenges strengthened my technical confidence and taught me how to troubleshoot independently, which is a crucial skill for any analyst. Most importantly, it reaffirmed my passion for turning messy data into meaningful insights that support data-driven decision-making.
+
+In a nutshell, this project/ case study has reinforced my passion for using data to empower better decision-making, and also to promote health, wellness, and digital innovation.
 
 ---
 
+## 📁 Repository Structure
+
+| File/Folder                  | Description |
+|-----------------------------|-------------|
+| `cleaned_daily_activity.csv`| Cleaned steps + calories data |
+| `cleaned_sleep_day.csv`     | Cleaned sleep log |
+| `cleaned_weight_log_info.csv`| Cleaned weight data |
+| `bellabeat_analysis.R`      | Full R script for analysis |
+| `README.md`                 | Project summary |
+| `/visuals`                  | Visual plots (PNG files) |
+
+---
+
+## 👩‍💻 About Me
+
+Hi! I’m Nurul Fatimah Az-Zaharah Mohd Aris, a data-driven energy & tech enthusiast transitioning into data analytics. I’m passionate about using data for sustainable solutions, wellness, and impactful change.
+
+📬 [LinkedIn](https://www.linkedin.com/in/nurul-fatimah-az-zaharah-mohd-aris-79485213a/) • ✉️ [Email Me](mailto:anne.ariss@outlook.com)
+
+---
