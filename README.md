@@ -61,8 +61,9 @@ Each dataset was cleaned and standardized before analysis in R:
 ### 🔍 Visual Glimpse of Cleaning Process
 
 Screenshots of the cleaning process using Excel filters and formatting:
-![Cleaned files](visuals/all_cleaned_files.png)
-![Files with incomplete data](visuals/weightlog_fat_incomplete_data.png)
+1. ![Cleaned files](visuals/all_cleaned_files.png)
+
+2. ![Files with incomplete data](visuals/weightlog_fat_incomplete_data.png)
 
 ---
 
@@ -95,6 +96,15 @@ Cleaned `.csv` files were analyzed using R to explore the relationships between 
 📌 **Insight:** Users with longer sleep durations tend to burn _slightly_ more calories, suggesting rest supports activity levels.
 
 ![Sleep vs Calories Pastel](visuals/sleep_vs_calories_pastel.png)
+
+### 💻 R Environment in Action
+Screenshot captured during live analysis in R using tidyverse, lubridate and ggplot2:
+
+1. ![Running R Code for analyzing and visualizing](visuals/analyze_visualize_with_R.png)
+
+2. ![Renaming, checking and cleaning the data in R (`read_csv`,`glimpse', `mutate`)]("visuals/data_check_R.png")
+
+3. ![Example of Error encountered in R]("visuals/error_example_R.png")
 
 ---
 
@@ -130,12 +140,6 @@ Users responded well to the heatmap-style visualizations created in this analysi
 - Personalized “heat zones” for progress tracking
 - Gamifying insights through aesthetic, visual storytelling enhances user engagement and can encourage continued app use.
 
-### 💻 R Environment in Action
-Screenshot captured during live analysis in R using tidyverse, lubridate and ggplot2:
-
-![Running R Code for analyzing and visualizing]("visuals/Analyze & Visualize with R.png")
-
-
 ---
 
 ## 💬 REFLECTION
@@ -152,14 +156,25 @@ In a nutshell, this project/ case study has reinforced my passion for using data
 
 ## 📁 Repository Structure
 
-| File/Folder                  | Description |
-|-----------------------------|-------------|
-| `cleaned_daily_activity.csv`| Cleaned steps + calories data |
-| `cleaned_sleep_day.csv`     | Cleaned sleep log |
-| `cleaned_weight_log_info.csv`| Cleaned weight data |
-| `bellabeat_analysis.R`      | Full R script for analysis |
-| `README.md`                 | Project summary |
-| `/visuals`                  | Visual plots (PNG files) |
+| Folder/File                  | Description                                         |
+|-----------------------------|-----------------------------------------------------|
+| `README.md`                 | Main project summary and documentation              |
+| `bellabeat_analysis.R`      | Completed R script containing all analysis code          |
+|                             |                                                     |
+| 📂 `data/`                  | Folder containing cleaned datasets                  |
+| ├── `cleaned_daily_activity.csv`      | Daily user activity data (cleaned)         |
+| ├── `cleaned_sleep_day.csv`           | Sleep log data (cleaned)                   |
+| └── `cleaned_weight_log_info.csv`     | Weight tracking data (cleaned)             |
+|                             |                                                     |
+| 📂 `visuals/`               | Data visualizations & screenshots from R            |
+| ├── `steps_vs_calories_heatmap.png`   | Heatmap: Steps vs Calories                 |
+| ├── `sleep_vs_calories.png`           | Scatter plot: Sleep vs Calories     |
+| ├── `avg_steps_by_day.png`            | Bar chart: Avg Steps by Day of Week        |
+| ├── `all_cleaned_files.png`           | Screenshot of cleaned files overview       |
+| ├── `weightlog_fat_incomplete_data.png`| Missing values in WeightLog visual         |
+| ├── `analyze_visualize_with_R.png`    | Screenshot: Visualizing in R               |
+| ├── `data_check_R.png`                | Screenshot: Glimpse() checks in R          |
+| └── `error_example_R.png`             | Screenshot: Example of a parsing error     |
 
 ---
 
