@@ -58,6 +58,12 @@ Each dataset was cleaned and standardized before analysis in R:
   - `cleaned_sleep_day.csv`
   - `cleaned_weight_log_info.csv`
 
+### 🔍 Visual Glimpse of Cleaning Process
+
+Screenshots of the cleaning process using Excel filters and formatting:
+![Cleaned files](visuals/all_cleaned_files.png)
+![Files with incomplete data](visuals/weightlog_fat_incomplete_data.png)
+
 ---
 
 ## 📊 ANALYZE
@@ -76,17 +82,17 @@ Cleaned `.csv` files were analyzed using R to explore the relationships between 
 
 ---
 
-### 🔹 2. Average Calories by Day of Week  
-📎 **Type:** Bar Chart with Gradient  
-📌 **Insight:** Users burn more calories on weekdays (Tues–Thurs) and are less active on weekends.
+### 🔹 2. Average Steps by Day of Week  
+📎 **Type:** Bar Chart with Solid Fill  
+📌 **Insight:** Users burn more calories on Saturdays and Tuesdays and are less active on Sundays.
 
-![Calories by Day](visuals/calories_by_day.png)
+![Calories by Day](visuals/avg_steps_by_day.png)
 
 ---
 
 ### 🔹 3. Sleep Duration vs Calories Burned  
-📎 **Type:** Pastel Scatter Plot with Smooth Trend  
-📌 **Insight:** Users with longer sleep durations tend to burn slightly more calories, suggesting rest supports activity levels.
+📎 **Type:** Scatter Plot with Smooth Trend  
+📌 **Insight:** Users with longer sleep durations tend to burn _slightly_ more calories, suggesting rest supports activity levels.
 
 ![Sleep vs Calories Pastel](visuals/sleep_vs_calories_pastel.png)
 
@@ -94,19 +100,41 @@ Cleaned `.csv` files were analyzed using R to explore the relationships between 
 
 ## 💡 ACT
 
-Based on the findings, here are three high-level marketing strategies Bellabeat could implement:
+Based on the analysis, here are three actionable marketing strategies Bellabeat could implement:
 
-### 🔹 1. **Midweek Motivation Campaigns**
+### 1. 🏃‍♀️ Weekend Warrior & Tuesday Boost Campaigns
 
-From the analysis, it was observed that the users tend to be most active during the middle of the week, particularly on Wednesdays and Thursdays. Bellabeat could leverage this trend by launching themed campaigns such as “_Wellness Wednesdays_” or “_Power-Up Thursdays_” that encourage users to keep up their momentum. These campaigns could also include limited-time rewards, motivational notifications, or in-app challenges to maintain engagement during peak activity days.
+the analysis, it was observed that users tend to be most active on Saturdays and Tuesdays, suggesting a pattern of high activity near the weekend and early in the work week.
+Bellabeat could capitalize on this by launching themed campaigns like:
+- _“Saturday Stride”_ or _“Weekend Warrior”_ challenges
+- _“Tuesday Boost”_ motivational pushes
+- In-app step goal streaks tied to these peak days
+- Limited-time rewards for consistent activity
 
-### 🔹 2. **Sleep-Based Coaching Features**
+This strategy taps into organic user behavior and boosts motivation when users are naturally more active.
 
-The data suggests a subtle positive relationship between longer sleep duration and increased calories burned. Bellabeat can promote more sleep tracking features by introducing personalized coaching prompts. For example, nudging users to maintain consistent sleep patterns or celebrating well-rested streaks. This reinforces the importance of recovery and positions Bellabeat as a holistic wellness partner, not just a tracker.
+### 2. 😴 Sleep-Based Wellness Nudges
 
-### 🔹 3. **In-App Visualizations with Heatmaps**
+The scatter plot analysis showed a positive relationship between sleep duration and calories burned, implying that better sleep might encourage more physical activity.
+Bellabeat can introduce features like:
+- Sleep score feedback with personalized daily suggestions
+- Morning nudges that encourage hydration or stretching after good sleep
+- In-app reminders promoting healthy nighttime routines
 
-It is well known that most users respond well to visually engaging insights. Thus, it is recommended for Bellabeat to integrate gradient-style plots or interactive heatmap dashboards within their app to help users better understand their own trends. For instance, displaying activity intensity with warm-to-cool color scales can gamify progress and motivate users to “_heat up_” their wellness goals. These visual feedback loops can increase daily check-ins and boost app stickiness over time.
+This positions Bellabeat not just as a tracker but as a wellness coach, making the product more holistic and value-driven.
+
+### 3. 🎨 Interactive Heatmap Visualizations
+Users responded well to the heatmap-style visualizations created in this analysis, which use color gradients to highlight performance trends. Bellabeat could implement similar in-app dashboards that show:
+- Step count trends over time
+- Calorie burn intensity via color gradients
+- Personalized “heat zones” for progress tracking
+- Gamifying insights through aesthetic, visual storytelling enhances user engagement and can encourage continued app use.
+
+### 💻 R Environment in Action
+Screenshot captured during live analysis in R using tidyverse, lubridate and ggplot2:
+
+![Running R Code for analyzing and visualizing]("visuals/Analyze & Visualize with R.png")
+
 
 ---
 
